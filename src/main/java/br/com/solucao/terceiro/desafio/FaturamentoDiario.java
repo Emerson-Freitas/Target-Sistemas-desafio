@@ -1,12 +1,17 @@
 package br.com.solucao.terceiro.desafio;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.json.simple.JSONObject;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Getter
+@EqualsAndHashCode
+@ToString
 public class FaturamentoDiario {
 
     private LocalDate data;
@@ -16,6 +21,11 @@ public class FaturamentoDiario {
     public FaturamentoDiario(JSONObject jsonObject){
         this.data = (LocalDate) jsonObject.get("data");
         this.valor = (BigDecimal) jsonObject.get("valor");
+    }
+
+    public FaturamentoDiario(LocalDate data, BigDecimal valor){
+        this.data = data;
+        this.valor = valor;
     }
 
 }

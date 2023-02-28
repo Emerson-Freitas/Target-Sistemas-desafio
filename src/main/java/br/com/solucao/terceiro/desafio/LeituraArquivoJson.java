@@ -1,5 +1,6 @@
 package br.com.solucao.terceiro.desafio;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
@@ -8,13 +9,13 @@ import java.io.FileReader;
 
 public class LeituraArquivoJson {
 
-    public JSONObject lerAquivoJson(String caminhoArquivo) throws FileNotFoundException {
+    public JSONArray lerAquivoJson(String caminhoArquivo) throws FileNotFoundException {
         FileReader fileReader = new FileReader(caminhoArquivo);
         JSONParser jsonParser = new JSONParser();
 
         try(fileReader) {
-            JSONObject jsonObject = (JSONObject) jsonParser.parse(fileReader);
-            return jsonObject;
+            JSONArray jsonArray = (JSONArray) jsonParser.parse(fileReader);
+            return jsonArray;
         }catch (Exception exception){
             exception.printStackTrace();
         }
