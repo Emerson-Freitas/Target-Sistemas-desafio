@@ -1,5 +1,4 @@
 {
-    "name": "Emerson",
-    "idade": 20,
-    "profissao": "Programador",
+    "data": "2023-02-27"
+    "valor": 2000.9
 }
