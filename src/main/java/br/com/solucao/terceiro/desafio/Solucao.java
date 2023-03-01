@@ -24,9 +24,11 @@ public class Solucao {
                 System.out.println(f.toString());
             }
 
+            System.out.println("Média mensal: " + faturamentoMensal.calculaMediaMensal(faturamentoMensal.getFaturamentoDiarios()));
+
             System.out.println("O menor valor de faturamento ocorrido em um dia do mês: " + faturamentoMensal.menorValorFaturamentoDiaDoMes(faturamentoMensal.getFaturamentoDiarios()));
             System.out.println("O maior valor de faturamento ocorrido em um dia do mês: " + faturamentoMensal.maiorValorFaturamentoDiaDoMes(faturamentoMensal.getFaturamentoDiarios()));
-            System.out.println("Número de dias no mês em que o valor de faturamento diário foi superior à média mensal: ");
+            System.out.println("Número de dias no mês em que o valor de faturamento diário foi superior à média mensal: " + faturamentoMensal.numeroDiasMesSuperiorMediaMensal(faturamentoMensal.getFaturamentoDiarios()));
 
         }catch (Exception exception){
             exception.printStackTrace();

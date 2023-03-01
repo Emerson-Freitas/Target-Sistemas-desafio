@@ -18,11 +18,6 @@ public class FaturamentoDiario {
 
     private BigDecimal valor;
 
-    public FaturamentoDiario(JSONObject jsonObject){
-        this.data = (LocalDate) jsonObject.get("data");
-        this.valor = (BigDecimal) jsonObject.get("valor");
-    }
-
     public FaturamentoDiario(LocalDate data, BigDecimal valor){
         this.data = data;
         this.valor = valor;

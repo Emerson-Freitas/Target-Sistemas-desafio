@@ -26,7 +26,7 @@ public class FaturamentoMensal {
         var lista = (List<FaturamentoDiario>) jsonArray.stream().map(obj ->{
             JSONObject jsonObject = (JSONObject) obj;
             LocalDate data = LocalDate.parse((String) jsonObject.get("data"), DateTimeFormatter.ISO_LOCAL_DATE);
-            BigDecimal valor = new BigDecimal((Double) jsonObject.get("valor"));
+            BigDecimal valor = new BigDecimal((Double) jsonObject.get("valor")).setScale(2, RoundingMode.DOWN);
             return new FaturamentoDiario(data, valor);
         }).collect(Collectors.toList());
 
@@ -49,19 +49,19 @@ public class FaturamentoMensal {
                 .map(FaturamentoDiario::getValor)
                 .mapToDouble(BigDecimal::doubleValue)
                 .average()
-                .orElse(Double.NaN));
+                .orElse(Double.NaN)).setScale(2, RoundingMode.DOWN);
     }
     public BigDecimal menorValorFaturamentoDiaDoMes(List<FaturamentoDiario> faturamentos){
         return faturamentos.stream()
                 .map(FaturamentoDiario::getValor)
                 .min(BigDecimal::compareTo)
-                .orElse(null);
+                .orElse(null).setScale(2, RoundingMode.DOWN);
     }
 
     public BigDecimal maiorValorFaturamentoDiaDoMes(List<FaturamentoDiario> faturamentos){
         return faturamentos.stream()
                 .map(FaturamentoDiario::getValor)
                 .max(BigDecimal::compareTo)
-                .orElse(null);
+                .orElse(null).setScale(2, RoundingMode.DOWN);
     }
 }
